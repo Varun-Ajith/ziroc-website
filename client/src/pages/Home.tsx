@@ -181,7 +181,7 @@ function Home() {
             <div className="platform-grid">
               <div className="platform-visual image-panel">
                 <img src={valcConcept} alt="VALC development-stage lower-limb exoskeleton concept rendering" onError={hideBroken} />
-                <div className="image-caption"><span>VALC / V1</span><strong>Concept rendering — not a commercial product</strong></div>
+                <div className="image-caption"><span>VALC / V1</span><strong>Concept rendering, not a commercial product</strong></div>
               </div>
               <div className="platform-copy">
                 {modes.map((mode) => <div className={`mode-row ${mode.accent}`} key={mode.number}><span className="mode-index">{mode.number}</span><div><h3>{mode.title}</h3><p>{mode.copy}</p></div></div>)}
@@ -274,7 +274,7 @@ function Home() {
 
         <section className="faq-section">
           <div className="page-width faq-grid">
-            <div><SectionLabel index="09">The questions</SectionLabel><h2>Credibility is built by being precise about what is known—and what is next.</h2></div>
+            <div><SectionLabel index="09">The questions</SectionLabel><h2>Credibility is built by being precise about what is known and what is next.</h2></div>
             <div className="faq-list">
               {["What is VALC today?", "Is the concept rendering a finished product?", "Is VALC clinically validated?", "What is ZIROC looking for now?"].map((question, index) => (
                 <div className={`faq-item ${activeFaq === index ? "is-active" : ""}`} key={question}>
