@@ -72,10 +72,10 @@ const modes = [
 ];
 
 const architecture = [
-  { icon: Layers3, label: "Mechanical", copy: "Powered hip and knee assistance with a passive compliant ankle architecture." },
-  { icon: Activity, label: "Sensing", copy: "Joint state information and interaction signals form the basis for movement tracking." },
-  { icon: Route, label: "Adaptive control", copy: "A high-level control architecture being developed to modulate assistance around user interaction." },
-  { icon: ShieldCheck, label: "Safety", copy: "Torque, kinematic and control supervision are being designed as layered safeguards." },
+  { icon: Layers3, label: "Mechanical", copy: "Compact lower-limb mechanical architecture designed around fit, mass, serviceability, and controlled movement." },
+  { icon: Activity, label: "Sensing", copy: "Joint-state feedback forms the basis for movement tracking and control." },
+  { icon: Route, label: "Control", copy: "A development-stage control architecture designed to adapt robotic intervention to movement state." },
+  { icon: ShieldCheck, label: "Safety", copy: "Layered safeguards supervise commanded motion, system state, and operating limits." },
 ];
 
 const timeline = [
@@ -86,7 +86,7 @@ const timeline = [
 ];
 
 const updates = [
-  { date: "Engineering note / 01", title: "VALC simulation reaches adaptive-assistance stage", copy: "The current development program is using physics-based simulation to test the architecture before hardware integration." },
+  { date: "Engineering note / 01", title: "VALC controller progresses through simulation validation", copy: "The current development program uses physics-based simulation to evaluate system behavior before hardware integration." },
   { date: "Engineering note / 02", title: "ROS 2 / Gazebo controller architecture established", copy: "The simulation environment separates control hypotheses from future clinical validation work." },
   { date: "Development note / 03", title: "Mechanical architecture is being iterated", copy: "The design process is focused on fit, serviceability, load paths, and the real workflow of rehabilitation clinics." },
 ];
@@ -199,15 +199,14 @@ function Home() {
             </div>
             <div className="architecture-diagram">
               <div className="arch-top">VALC <span>system boundary</span></div>
-              <div className="arch-columns"><div><Layers3 size={18} /><strong>Mechanical</strong><span>Powered joints + compliant ankle</span></div><div><Activity size={18} /><strong>Sensing</strong><span>Joint state + interaction signals</span></div><div><Route size={18} /><strong>Control</strong><span>Assistance modulation</span></div></div>
-              <div className="arch-safety"><ShieldCheck size={18} /><strong>Safety layer</strong><span>Torque · kinematic · control supervision</span></div>
+              <div className="arch-columns"><div><Layers3 size={18} /><strong>Mechanical</strong><span>Lower-limb mechanical system</span></div><div><Activity size={18} /><strong>Sensing</strong><span>Joint-state feedback</span></div><div><Route size={18} /><strong>Control</strong><span>Movement control</span></div></div>
+              <div className="arch-safety"><ShieldCheck size={18} /><strong>Safety layer</strong><span>Layered system supervision</span></div>
               <div className="arch-bottom">ACTUATION <span>controlled movement output</span></div>
             </div>
             <div className="architecture-grid">
               {architecture.map(({ icon: Icon, label, copy }) => <div className="architecture-item" key={label}><Icon size={19} /><div><h3>{label}</h3><p>{copy}</p></div></div>)}
             </div>
-            <div className="ip-notice"><LockKeyhole size={18} /><div><strong>IP-conscious disclosure</strong><span>Exact Kp/Kd values, torque thresholds, adaptive coefficients, source code, circuit schematics, PCB architecture, and detailed ankle geometry are not published here before filing.</span></div></div>
-          </div>
+            <div className="ip-notice"><LockKeyhole size={18} /><div><strong>IP-conscious disclosure</strong><span>Public information is intentionally kept at a high level while ZIROC continues its intellectual-property and engineering development.</span></div></div>          </div>
         </section>
 
         <section className="development-section" id="development">
@@ -221,7 +220,8 @@ function Home() {
             </div>
             <div className="simulation-grid">
               <div className="simulation-image image-panel"><img src={labImage} alt="Engineering workbench detail for VALC development" onError={hideBroken} /><div className="image-caption"><span>SIMULATION / BENCH</span><strong>Physics before patient exposure</strong></div></div>
-              <div className="simulation-copy"><div className="mini-eyebrow"><FlaskConical size={16} /> Engineering validation</div><h3>Representative development runs from ROS 2 / Gazebo.</h3><p>These figures describe physics-based simulation performance of the controller and system architecture. They are not a substitute for human-subject or clinical validation.</p><div className="results-table"><div className="results-row results-head"><span>Mode</span><span>Hip RMSE</span><span>Knee RMSE</span></div><div className="results-row"><span>Passive</span><strong>0.013 rad</strong><strong>0.010 rad</strong></div><div className="results-row"><span>Adaptive assistance</span><strong>0.030 rad</strong><strong>0.027 rad</strong></div><div className="results-row"><span>Resistance</span><strong>~0.063 rad</strong><strong>~0.053 rad</strong></div></div><small className="source-note">Source: ZIROC representative ROS 2 / Gazebo development runs, as provided for this site brief.</small></div>
+              <div className="simulation-copy"><div className="mini-eyebrow"><FlaskConical size={16} /> Engineering validation</div><h3>Representative development runs from ROS 2 / Gazebo.</h3><p>These figures describe physics-based simulation performance of the controller and system architecture. They are not a substitute for human-subject or clinical validation.</p>
+              <div className="results-table"><div className="results-row results-head"><span>Mode</span><span>Hip RMSE</span><span>Knee RMSE</span></div><div className="results-row"><span>Passive</span><strong>0.013 rad</strong><strong>0.010 rad</strong></div><div className="results-row"><span>Adaptive assistance</span><strong>0.030 rad</strong><strong>0.027 rad</strong></div><div className="results-row"><span>Resistance</span><strong>~0.063 rad</strong><strong>~0.053 rad</strong></div></div><small className="source-note">Source: ZIROC representative ROS 2 / Gazebo development runs, as provided for this site brief.</small></div>
             </div>
           </div>
         </section>
@@ -236,7 +236,28 @@ function Home() {
         <section className="commercial-section" id="commercial">
           <div className="page-width commercial-grid">
             <div className="commercial-copy"><SectionLabel index="06">The path to adoption</SectionLabel><h2>Start where evidence can be observed: the clinic floor.</h2><p>The rollout is deliberately staged. ZIROC intends to learn from supervised use before broader distribution or third-party channel expansion.</p><a className="text-link" href="#contact">Discuss a pilot <ArrowUpRight size={15} /></a></div>
-            <div className="commercial-steps"><div className="commercial-step is-current"><span>01</span><div><strong>Engineering prototype</strong><p>Repeatable operation, durability, fit adjustment, and safety protocol work.</p></div><small>Now</small></div><div className="commercial-step"><span>02</span><div><strong>3–5 supervised Kerala pilots</strong><p>Measure setup time, therapist headcount, daily sessions, uptime, and patient fit.</p></div><small>Target</small></div><div className="commercial-step"><span>03</span><div><strong>Founder-led first installations</strong><p>The founding team handles the first 10–20 installations to learn the workflow before partners.</p></div><small>Target</small></div><div className="commercial-step"><span>04</span><div><strong>Two adoption paths</strong><p>Direct sales for established providers; RaaS for smaller clinics unable to commit to large CAPEX.</p></div><small>Hypothesis</small></div></div>
+            <div className="commercial-steps">
+  <div className="commercial-step is-current">
+    <span>01</span>
+    <div><strong>Engineering prototype</strong><p>Repeatable operation, durability, fit adjustment, and safety protocol work.</p></div>
+    <small>Now</small>
+  </div>
+  <div className="commercial-step">
+    <span>02</span>
+    <div><strong>Supervised evaluation</strong><p>Controlled evaluation of system performance, usability, fit, and workflow.</p></div>
+    <small>Planned</small>
+  </div>
+  <div className="commercial-step">
+    <span>03</span>
+    <div><strong>Clinical validation</strong><p>Progress toward the evidence required for responsible clinical adoption.</p></div>
+    <small>Gated</small>
+  </div>
+  <div className="commercial-step">
+    <span>04</span>
+    <div><strong>Controlled deployment</strong><p>Expand deployment only after the required engineering, clinical, and regulatory milestones are met.</p></div>
+    <small>Later</small>
+  </div>
+</div>
           </div>
         </section>
 
@@ -258,7 +279,7 @@ function Home() {
               {["What is VALC today?", "Is the concept rendering a finished product?", "Is VALC clinically validated?", "What is ZIROC looking for now?"].map((question, index) => (
                 <div className={`faq-item ${activeFaq === index ? "is-active" : ""}`} key={question}>
                   <button onClick={() => setActiveFaq(activeFaq === index ? null : index)} aria-expanded={activeFaq === index}><span>0{index + 1}</span><strong>{question}</strong><ChevronDown size={18} /></button>
-                  {activeFaq === index && <p>{index === 0 ? "VALC is a development-stage lower-limb rehabilitation platform progressing from a 1-DOF bench PoC and simulation work toward an integrated clinic system." : index === 1 ? "No. It is an aspirational concept rendering of the target V1 design. The current PoC is a bench-top mechanism for validating control and mechanical foundations." : index === 2 ? "No. Current results are simulation and engineering development results. Human-subject and clinical validation remain future gated milestones." : "We are looking to connect with clinical institutions, research partners, engineering collaborators, accelerator programs, and strategic investors."}</p>}
+                  {activeFaq === index && <p>{index === 0 ? "VALC is a development-stage lower-limb rehabilitation platform progressing from mechanical proof-of-concept work and physics-based simulation toward an integrated physical prototype." : index === 1 ? "No. It is an aspirational concept rendering of the target V1 design. The current development work is focused on validating mechanical and control foundations." : index === 2 ? "No. Current results are simulation and engineering development results. Human-subject and clinical validation remain future gated milestones." : "We are looking to connect with clinical institutions, research partners, engineering collaborators, accelerator programs, and strategic investors."}</p>}
                 </div>
               ))}
             </div>
@@ -270,7 +291,7 @@ function Home() {
             <div className="contact-orbit"><CircleDot size={18} /><span>Open to clinical, engineering, and investment conversations</span></div>
             <h2>Let's build the future of rehabilitation robotics.</h2>
             <p>We are developing VALC and looking to connect with clinical institutions, research partners, engineering collaborators, accelerator programs, and strategic investors who share the direction.</p>
-            <div className="contact-actions"><a className="button button-light" href="mailto:hello@ziroc.in">Partner with ZIROC <ArrowUpRight size={17} /></a><a className="contact-email" href="mailto:hello@ziroc.in">hello@ziroc.in</a></div>
+            <div className="contact-actions"><a className="button button-light" href="mailto:zirocrobotics@gmail.com">Partner with ZIROC <ArrowUpRight size={17} /></a><a className="contact-email" href="mailto:zirocrobotics@gmail.com">zirocrobotics@gmail.com</a></div>
             <div className="contact-meta"><span>ZIROC Private Limited · Kerala, India</span><span>CIN U28299KL2026PTC105712</span><span>General · Partnerships · Investors</span></div>
           </div>
         </section>
