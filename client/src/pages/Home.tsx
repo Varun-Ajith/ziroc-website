@@ -22,7 +22,7 @@ const valcConcept = "/manus-storage/VALC_pro.png";
 const heroImage = "/manus-storage/ziroc_hero_clinic_88ad7888.jpg";
 const labImage = "/manus-storage/ziroc_lab_detail_1f281b69.jpg";
 const therapistImage = "/manus-storage/ziroc_therapist_workflow_a54b7dcf.jpg";
-const teamImage = "/manus-storage/ziroc_team_workshop_a8d26500.jpg";
+const teamImage = "/manus-storage/valc_blueprint_concept.png";
 
 // Hides an <img> gracefully (falls back to the panel's background colour +
 // caption) instead of showing a broken-image icon when a source is missing.
