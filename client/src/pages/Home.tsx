@@ -17,11 +17,11 @@ import {
   X,
 } from "lucide-react";
 
-const logo = "C:\Users\varun\OneDrive\Desktop\STartUP\ZIROC\ziroc-website\client\public\manus-storage\ziro_logo_black_transparent.png";
-const valcConcept = "C:\Users\varun\OneDrive\Desktop\STartUP\ZIROC\ziroc-website\client\public\manus-storage\VALC_pro.png";
-const heroImage = "C:\Users\varun\OneDrive\Desktop\STartUP\ZIROC\ziroc-website\client\public\manus-storage\ziroc_hero_clinic_88ad7888.jpg";
-const labImage = "C:\Users\varun\OneDrive\Desktop\STartUP\ZIROC\ziroc-website\client\public\manus-storage\ziroc_lab_detail_1f281b69.jpg";
-const therapistImage = "C:\Users\varun\OneDrive\Desktop\STartUP\ZIROC\ziroc-website\client\public\manus-storage\ziroc_therapist_workflow_a54b7dcf.jpg";
+const logo = "/manus-storage/ziro_logo_black_transparent.png";
+const valcConcept = "/manus-storage/VALC_pro.png";
+const heroImage = "/manus-storage/ziroc_hero_clinic_88ad7888.jpg";
+const labImage = "/manus-storage/ziroc_lab_detail_1f281b69.jpg";
+const therapistImage = "/manus-storage/ziroc_therapist_workflow_a54b7dcf.jpg";
 const teamImage = "/manus-storage/ziroc_team_workshop_a8d26500.jpg";
 
 // Hides an <img> gracefully (falls back to the panel's background colour +
