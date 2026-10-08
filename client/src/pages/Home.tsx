@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 const logo = "/manus-storage/ziro_logo_black_transparent.png";
-const valcConcept = "/manus-storage/VALC_pro.png";
+const valcConcept = "/manus-storage/valc_phase1_prototype.jpg";
 const heroImage = "/manus-storage/ziroc_hero_clinic_88ad7888.jpg";
 const labImage = "/manus-storage/ziroc_lab_detail_1f281b69.jpg";
 const therapistImage = "/manus-storage/ziroc_therapist_workflow_a54b7dcf.jpg";
@@ -86,7 +86,7 @@ const timeline = [
 ];
 
 const updates = [
-  { date: "Engineering note / 01", title: "VALC controller progresses through simulation validation", copy: "The current development program uses physics-based simulation to evaluate system behavior before hardware integration." },
+  { date: "Engineering note / 01", title: "VALC progresses from simulation toward physical integration", copy: "The first-phase single-leg prototype marks the transition from system design and physics-based simulation toward physical mechanical and subsystem validation." },
   { date: "Engineering note / 02", title: "ROS 2 / Gazebo controller architecture established", copy: "The simulation environment separates control hypotheses from future clinical validation work." },
   { date: "Development note / 03", title: "Mechanical architecture is being iterated", copy: "The design process is focused on fit, serviceability, load paths, and the real workflow of rehabilitation clinics." },
 ];
@@ -176,12 +176,14 @@ function Home() {
                 <SectionLabel index="02">Meet VALC</SectionLabel>
                 <h2>One platform. Three modes. A progression toward greater active participation.</h2>
               </div>
-              <p>VALC is ZIROC's lower-limb robotic rehabilitation platform, designed around powered hip and knee assistance and a compliant passive ankle architecture.</p>
-            </div>
+              <p>VALC is ZIROC's lower-limb robotic rehabilitation platform. This first-phase single-leg prototype is being used to validate the physical architecture, integration approach, fit, and core engineering foundations before the next development stage.</p>            </div>
             <div className="platform-grid">
               <div className="platform-visual image-panel">
-                <img src={valcConcept} alt="VALC development-stage lower-limb exoskeleton concept rendering" onError={hideBroken} />
-                <div className="image-caption"><span>VALC / V1</span><strong>Concept rendering, not a commercial product</strong></div>
+                <img src={valcPrototype} alt="VALC first-phase single-leg physical prototype" onError={hideBroken} />
+                <div className="image-caption">
+                  <span>VALC / PHASE 01</span>
+                  <strong>First-phase single-leg prototype</strong>
+                </div>
               </div>
               <div className="platform-copy">
                 {modes.map((mode) => <div className={`mode-row ${mode.accent}`} key={mode.number}><span className="mode-index">{mode.number}</span><div><h3>{mode.title}</h3><p>{mode.copy}</p></div></div>)}
@@ -276,11 +278,10 @@ function Home() {
           <div className="page-width faq-grid">
             <div><SectionLabel index="09">The questions</SectionLabel><h2>Credibility is built by being precise about what is known and what is next.</h2></div>
             <div className="faq-list">
-              {["What is VALC today?", "Is the concept rendering a finished product?", "Is VALC clinically validated?", "What is ZIROC looking for now?"].map((question, index) => (
+              {["What is VALC today?", "What is the first-phase prototype?", "Is VALC clinically validated?", "What is ZIROC looking for now?"].map((question, index) => (
                 <div className={`faq-item ${activeFaq === index ? "is-active" : ""}`} key={question}>
                   <button onClick={() => setActiveFaq(activeFaq === index ? null : index)} aria-expanded={activeFaq === index}><span>0{index + 1}</span><strong>{question}</strong><ChevronDown size={18} /></button>
-                  {activeFaq === index && <p>{index === 0 ? "VALC is a development-stage lower-limb rehabilitation platform progressing from mechanical proof-of-concept work and physics-based simulation toward an integrated physical prototype." : index === 1 ? "No. It is an aspirational concept rendering of the target V1 design. The current development work is focused on validating mechanical and control foundations." : index === 2 ? "No. Current results are simulation and engineering development results. Human-subject and clinical validation remain future gated milestones." : "We are looking to connect with clinical institutions, research partners, engineering collaborators, accelerator programs, and strategic investors."}</p>}
-                </div>
+                  {activeFaq === index && <p>{index === 0 ? "VALC is a development-stage lower-limb rehabilitation platform progressing from mechanical proof-of-concept work and physics-based simulation toward an integrated physical prototype." : index === 1 ? "The first-phase single-leg prototype is a physical engineering prototype used to validate mechanical architecture, fit, alignment, and system integration. It is not a finished clinical product." : index === 2 ? "No. Current results are simulation and engineering development results. Human-subject and clinical validation remain future gated milestones." : "We are looking to connect with clinical institutions, research partners, engineering collaborators, accelerator programs, and strategic investors."}</p>}                </div>
               ))}
             </div>
           </div>
